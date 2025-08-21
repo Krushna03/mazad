@@ -1,39 +1,46 @@
-import { ArrowRightIcon } from 'lucide-react'
-import React from 'react'
-import CircularGallery from './CircularGallery'
+import { Card, CardContent } from "@/components/ui/card"
+import React from "react"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel"
+import Autoplay from "embla-carousel-autoplay"
 
 const Hero = () => {
+  
+  const images = ["/banner/banner-img-1.svg", "/banner/banner-img-2.svg"]
+
   return (
-    <div className='max-w-7xl mx-auto flex flex-col justify-center items-center'>
-      <div className='mt-20'>
-        <div className='text-base px-5 font-light border rounded-4xl p-2'>
-          New Srping Collection 2025
-        </div>
-      </div>
-
-      <div className='max-w-6xl mx-auto mt-6'>
-        <div className='text-6xl text-center font-semibold leading-[67px] text-gray-100'>
-          Where style meets expression, Trends inspire, and Fashion thrives
-        </div>
-      </div>
-
-      <div className='max-w-2xl mx-auto mt-6'>
-        <div className='text-xl font-light text-center text-gray-100'>
-          Step into fashion heaven where the latest trends meet your unique style aspirations. Redefine your wardrobe with Desober today!
-        </div>
-      </div>
-      
-      <div className='max-w-2xl mt-8'>
-        <button className='flex items-center gap-2 text-lg border p-2 px-6 rounded-3xl bg-white text-black'>
-          New Collection <ArrowRightIcon />
-        </button>
-      </div>
-
-      {/* <div style={{ height: '1100px', position: 'relative' }}> */}
-      <div className='w-[700px] h-[400px]'>
-        <CircularGallery bend={5} textColor="#ffffff" borderRadius={0.05} scrollEase={0.02}/>
-      </div>
-      {/* </div> */}
+    <div className="md:max-w-7xl mx-auto">
+      <Carousel 
+        className=""
+        plugins={[
+          Autoplay({
+            delay: 2000,
+          }),
+        ]}   
+      >
+        <CarouselContent>
+          {images.map((bannerImage, index) => (
+            <CarouselItem key={index}>
+              <div className="mt-6 md:mt-14">
+                <Card className="p-0 border-0 px-0">
+                  <CardContent className="flex items-center justify-center">
+                    <img 
+                      src={bannerImage} 
+                      alt={bannerImage}  
+                      width={1300}
+                      // height={700}
+                      className="object-cover rounded-md" 
+                    />
+                  </CardContent>
+                </Card>
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
     </div>
   )
 }

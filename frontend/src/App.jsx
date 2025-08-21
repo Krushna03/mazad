@@ -1,5 +1,3 @@
-import { useState } from 'react'
-import Hello from './components/hello'  
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { Home } from './Pages/Home'
 import Register from './Pages/Register'

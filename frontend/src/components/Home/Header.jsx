@@ -21,7 +21,7 @@ export function Header() {
         <div className="flex items-center justify-between gap-8">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <div className="text-blue-900 font-bold">
+            <div className="text-[#1f0e56d9] font-bold">
               <div className="text-3xl leading-tight text-center">مزاد</div>
               <div className="text-3xl font-bold">mazad</div>
             </div>
@@ -44,7 +44,7 @@ export function Header() {
             <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
               <ShoppingCart className="h-6 w-6 text-gray-600" />
             </button>
-            <Button className="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-3xl font-medium">Sign In</Button>
+            <Button className="bg-red-500 hover:bg-red-600 text-white px-6 py-5 rounded-3xl font-medium">Sign In</Button>
           </div>
         </div>
       </div>
@@ -58,13 +58,13 @@ export function Header() {
                 <a
                   key={index}
                   href="#"
-                  className="text-gray-600 hover:text-blue-600 font-medium text-sm transition-colors"
+                  className="text-gray-500 hover:text-gray-600 font-medium text-sm transition-colors"
                 >
                   {item}
                 </a>
               ))}
             </nav>
-            <a href="#" className="text-gray-600 hover:text-blue-600 font-medium text-sm transition-colors">
+            <a href="#" className="text-gray-600 hover:text-blue-600 font-medium text-sm transition-colors underline">
               Sell With Us
             </a>
           </div>
