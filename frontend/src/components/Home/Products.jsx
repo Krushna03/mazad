@@ -7,7 +7,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
-import { ChevronRight } from "lucide-react"
+import { Bookmark, ChevronRight } from "lucide-react"
 
 const products = [
   {
@@ -104,16 +104,19 @@ export function Products() {
               key={product.id}
               className="pl-1 md:basis-1/2 lg:basis-1/4"
             >
-              <Card className="flex flex-col select-none">
+              <Card className="flex flex-col select-none relative">
                 <CardContent className="p-4 flex flex-col">
-                  {
-                    product.isNew && (
-                    <h1 className="absolute top-2 shadow-2xl bg-gray-50 border px-2 py-1 rounded-lg text-sm font-semibold">
-                      New
-                    </h1>
-                    )
-                  }
-                  
+                  {product.isNew && (
+                    <div className="absolute left-2 top-2 shadow-lg bg-red-500 px-3 py-1 rounded-lg text-sm text-white font-semibold">
+                      NEW
+                    </div>
+                  )}
+
+                  {/* Bookmark top-right */}
+                  <div className="absolute top-2 right-2 shadow-lg bg-gray-50 p-2 rounded-lg">
+                    <Bookmark className="w-5 h-5 text-gray-700" />
+                  </div>
+
                   {/* Image */}
                   <div className="relative w-full h-[200px] flex items-center justify-center">
                     <img
@@ -129,7 +132,7 @@ export function Products() {
                       {product.title}
                     </h2>
                     <div className="flex flex-col items-start gap-2">
-                      <span className="font-medium text-sm text-gray-600 ">
+                      <span className="font-medium text-sm text-gray-600">
                         {product.text}
                       </span>
                       <span className="font-bold text-lg">
@@ -139,6 +142,7 @@ export function Products() {
                   </div>
                 </CardContent>
               </Card>
+
             </CarouselItem>
           ))}
         </CarouselContent>

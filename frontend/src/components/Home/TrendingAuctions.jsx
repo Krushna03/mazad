@@ -7,80 +7,104 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
-import { ChevronRight } from "lucide-react"
+import { Bookmark, ChevronRight, Clock, Gavel } from "lucide-react"
 
 const products = [
   {
     id: 1,
     image: "/products/product-1.jpeg",
-    title: "Roberto Coin Princess Flower Earrings",
-    price: 2185,
-    text: "price",
+    title: "Exclusive: Plate 680006",
+    currentBid: 1600,
     currency: "BHD",
     isNew: true,
+    price: 1200,
+    text: "Current Bid",
+    timeLeft: "7d 20h",
+    bids: 27,
   },
   {
     id: 2,
     image: "/products/product-2.jpeg",
-    title: "Roberto Coin Diamond Necklace",
-    price: 3250,
+    title: "Plate: 12345",
+    currentBid: 980,
     currency: "BHD",
-    text: "price",
     isNew: false,
+    price: 1200,
+    text: "Current Bid",
+    timeLeft: "7d 20h",
+    bids: 27,
   },
   {
-    id: 3,
-    image: "/products/product-3.jpeg",
-    title: "Cartier Love Bracelet",
-    price: 4950,
+    id: 4,
+    image: "/products/product-4.jpeg",
+    title: "Plate: 2025",
+    currentBid: 2200,
     currency: "BHD",
-    text: "price",
     isNew: true,
+    price: 1200,
+    text: "Current Bid",
+    timeLeft: "7d 20h",
+    bids: 27,
   },
   {
     id: 5,
     image: "/products/product-5.jpeg",
-    title: "Tiffany & Co. Diamond Stud Earrings",
-    price: 2890,
+    title: "Plate: 4444",
+    currentBid: 750,
     currency: "BHD",
-    text: "price",
     isNew: false,
+    price: 1200,
+    text: "Current Bid",
+    timeLeft: "7d 20h",
+    bids: 27,
   },
   {
     id: 6,
     image: "/products/product-6.jpeg",
-    title: "Bvlgari Serpenti Watch",
-    price: 9800,
-    text: "price",
+    title: "Plate: 707070",
+    currentBid: 5100,
     currency: "BHD",
     isNew: false,
+    price: 1200,
+    text: "Current Bid",
+    timeLeft: "7d 20h",
+    bids: 27,
   },
   {
     id: 7,
     image: "/products/product-7.jpeg",
-    title: "Chopard Happy Hearts Bracelet",
-    price: 4100,
+    title: "Plate: 1111",
+    currentBid: 1450,
     currency: "BHD",
-    text: "price",
     isNew: true,
+    price: 1200,
+    text: "Current Bid",
+    timeLeft: "7d 20h",
+    bids: 27,
   },
   {
     id: 8,
     image: "/products/product-8.jpeg",
-    title: "Gucci Icon Ring",
-    price: 1200,
+    title: "Plate: 77777",
+    currentBid: 8900,
     currency: "BHD",
-    text: "price",
     isNew: false,
+    price: 1200,
+    text: "Current Bid",
+    timeLeft: "7d 20h",
+    bids: 27,
   },
   {
     id: 9,
     image: "/products/product-9.svg",
-    title: "Hermès Kelly Bag Charm",
-    price: 850,
+    title: "Plate: 505050",
+    currentBid: 3100,
     currency: "BHD",
-    text: "price",
     isNew: true,
+    price: 1200,
+    text: "Current Bid",
+    timeLeft: "7d 20h",
+    bids: 27,
   },
 ]
 
@@ -104,16 +128,13 @@ export function TrendingAuctions() {
               key={product.id}
               className="pl-1 md:basis-1/2 lg:basis-1/4"
             >
-              <Card className="flex flex-col select-none">
+              <Card className="flex flex-col select-none relative">
                 <CardContent className="p-4 flex flex-col">
-                  {
-                    product.isNew && (
-                    <h1 className="absolute top-2 shadow-2xl bg-gray-50 border px-2 py-1 rounded-lg text-sm font-semibold">
-                      New
-                    </h1>
-                    )
-                  }
                   
+                  <div className="absolute top-2 right-2 shadow-lg bg-gray-50 p-2 rounded-lg">
+                    <Bookmark className="w-5 h-5 text-gray-700" />
+                  </div>
+
                   {/* Image */}
                   <div className="relative w-full h-[200px] flex items-center justify-center">
                     <img
@@ -123,16 +144,24 @@ export function TrendingAuctions() {
                     />
                   </div>
 
+                  <div className="absolute top-[55%] right-2 flex items-center gap-1 bg-gray-800 text-white text-xs px-2 py-1 rounded-full shadow-md">
+                      <Clock className="w-4 h-4" />
+                      <span>{product.timeLeft}</span>
+                      <span className="w-px h-4 bg-white/40"></span>
+                      <Gavel className="w-4 h-4" />
+                      <span>{product.bids}</span>
+                    </div>
+
                   {/* Product Info */}
                   <div className="mt-6 space-y-1 text-left">
-                    <h2 className="text-base text-gray-600 font-medium line-clamp-2">
+                    <h2 className="text-base text-gray-900 font-semibold line-clamp-2">
                       {product.title}
                     </h2>
                     <div className="flex flex-col items-start gap-2">
                       <span className="font-medium text-sm text-gray-600 ">
                         {product.text}
                       </span>
-                      <span className="font-bold text-lg">
+                      <span className="font-semibold text-lg">
                         {product.currency + ", " + product.price}
                       </span>
                     </div>
