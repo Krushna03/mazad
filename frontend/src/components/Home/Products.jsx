@@ -22,7 +22,7 @@ const products = [
   {
     id: 2,
     image: "/products/product-2.jpeg",
-    title: "Roberto Coin Classic Diamond Necklace",
+    title: "Roberto Coin Diamond Necklace",
     price: 3250,
     currency: "BHD",
     text: "price",
@@ -35,7 +35,7 @@ const products = [
     price: 4950,
     currency: "BHD",
     text: "price",
-    isNew: false,
+    isNew: true,
   },
   {
     id: 5,
@@ -89,8 +89,8 @@ export function Products() {
     <div className="md:max-w-7xl mx-auto mt-20 p-2">
       {/* Header */}
       <div className="flex items-center justify-between px-4">
-        <h1 className="text-2xl font-semibold">Don't wait, Buy now</h1>
-        <h1 className="flex gap-1 items-center text-base text-gray-600 cursor-pointer">
+        <h1 className="text-[25px] font-bold text-gray-800 cursor-pointer select-none">Don't wait, Buy now</h1>
+        <h1 className="flex gap-1 items-center text-base text-gray-600 cursor-pointer select-none">
           View all
           <ChevronRight className="text-gray-600 h-5 w-5" />
         </h1>
@@ -104,8 +104,16 @@ export function Products() {
               key={product.id}
               className="pl-1 md:basis-1/2 lg:basis-1/4"
             >
-              <Card className=" flex flex-col">
+              <Card className="flex flex-col select-none">
                 <CardContent className="p-4 flex flex-col">
+                  {
+                    product.isNew && (
+                    <h1 className="absolute top-2 shadow-2xl bg-gray-50 border px-2 py-1 rounded-lg text-sm font-semibold">
+                      New
+                    </h1>
+                    )
+                  }
+                  
                   {/* Image */}
                   <div className="relative w-full h-[200px] flex items-center justify-center">
                     <img
@@ -117,14 +125,14 @@ export function Products() {
 
                   {/* Product Info */}
                   <div className="mt-6 space-y-1 text-left">
-                    <h2 className="text-sm font-medium line-clamp-2">
+                    <h2 className="text-base text-gray-600 font-medium line-clamp-2">
                       {product.title}
                     </h2>
-                    <div className="flex flex-col items-start gap-1">
+                    <div className="flex flex-col items-start gap-2">
                       <span className="font-medium text-sm text-gray-600 ">
                         {product.text}
                       </span>
-                      <span className="text-gray-600 font-bold text-lg">
+                      <span className="font-bold text-lg">
                         {product.currency + ", " + product.price}
                       </span>
                     </div>

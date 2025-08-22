@@ -9,7 +9,7 @@ import Autoplay from "embla-carousel-autoplay"
 
 const Hero = () => {
   
-  const images = ["/banner/banner-img-1.svg", "/banner/banner-img-2.svg"]
+  const images = ["/banner/banner-img-1.svg", "/banner/banner-img-2.svg", "/banner/banner-img-3.svg"]
 
   return (
     <div className="md:max-w-7xl mx-auto">

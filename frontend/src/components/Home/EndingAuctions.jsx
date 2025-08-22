@@ -1,0 +1,150 @@
+import * as React from "react"
+import { Card, CardContent } from "@/components/ui/card"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+import { ChevronRight } from "lucide-react"
+
+const products = [
+  {
+    id: 1,
+    image: "/products/product-1.jpeg",
+    title: "Roberto Coin Princess Flower Earrings",
+    price: 2185,
+    text: "price",
+    currency: "BHD",
+    isNew: true,
+  },
+  {
+    id: 2,
+    image: "/products/product-2.jpeg",
+    title: "Roberto Coin Diamond Necklace",
+    price: 3250,
+    currency: "BHD",
+    text: "price",
+    isNew: false,
+  },
+  {
+    id: 3,
+    image: "/products/product-3.jpeg",
+    title: "Cartier Love Bracelet",
+    price: 4950,
+    currency: "BHD",
+    text: "price",
+    isNew: true,
+  },
+  {
+    id: 5,
+    image: "/products/product-5.jpeg",
+    title: "Tiffany & Co. Diamond Stud Earrings",
+    price: 2890,
+    currency: "BHD",
+    text: "price",
+    isNew: false,
+  },
+  {
+    id: 6,
+    image: "/products/product-6.jpeg",
+    title: "Bvlgari Serpenti Watch",
+    price: 9800,
+    text: "price",
+    currency: "BHD",
+    isNew: false,
+  },
+  {
+    id: 7,
+    image: "/products/product-7.jpeg",
+    title: "Chopard Happy Hearts Bracelet",
+    price: 4100,
+    currency: "BHD",
+    text: "price",
+    isNew: true,
+  },
+  {
+    id: 8,
+    image: "/products/product-8.jpeg",
+    title: "Gucci Icon Ring",
+    price: 1200,
+    currency: "BHD",
+    text: "price",
+    isNew: false,
+  },
+  {
+    id: 9,
+    image: "/products/product-9.svg",
+    title: "Hermès Kelly Bag Charm",
+    price: 850,
+    currency: "BHD",
+    text: "price",
+    isNew: true,
+  },
+]
+
+export function EndingAuctions() {
+  return (
+    <div className="md:max-w-7xl mx-auto p-2 md:pt-16">
+      {/* Header */}
+      <div className="flex items-center justify-between px-3">
+        <h1 className="text-[25px] font-bold text-gray-800 cursor-pointer select-none">Auctions Ending Soon</h1>
+        <h1 className="flex gap-1 items-center text-base text-gray-600 cursor-pointer select-none">
+          View all
+          <ChevronRight className="text-gray-600 h-5 w-5" />
+        </h1>
+      </div>
+
+      {/* Carousel */}
+      <Carousel className="mt-5">
+        <CarouselContent className="-ml-1">
+          {products.map((product) => (
+            <CarouselItem
+              key={product.id}
+              className="pl-1 md:basis-1/2 lg:basis-1/4"
+            >
+              <Card className="flex flex-col select-none">
+                <CardContent className="p-4 flex flex-col">
+                  {
+                    product.isNew && (
+                    <h1 className="absolute top-2 shadow-2xl bg-gray-50 border px-2 py-1 rounded-lg text-sm font-semibold">
+                      New
+                    </h1>
+                    )
+                  }
+                  
+                  {/* Image */}
+                  <div className="relative w-full h-[200px] flex items-center justify-center">
+                    <img
+                      src={product.image}
+                      alt={product.title}
+                      className="object-contain max-h-[200px] w-full"
+                    />
+                  </div>
+
+                  {/* Product Info */}
+                  <div className="mt-6 space-y-1 text-left">
+                    <h2 className="text-base text-gray-600 font-medium line-clamp-2">
+                      {product.title}
+                    </h2>
+                    <div className="flex flex-col items-start gap-2">
+                      <span className="font-medium text-sm text-gray-600 ">
+                        {product.text}
+                      </span>
+                      <span className="font-bold text-lg">
+                        {product.currency + ", " + product.price}
+                      </span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
+    </div>
+  )
+}
