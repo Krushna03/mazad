@@ -2,6 +2,7 @@ import { Search, ShoppingCart, Menu, Cross, X, ChevronRight, ChevronDown, Chevro
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { useState } from "react"
+import { FaAndroid, FaApple } from "react-icons/fa";
 
 export function Header() {
 
@@ -25,7 +26,11 @@ export function Header() {
       <div className="bg-[#252c32] text-white p-2 text-[15px] justify-between px-4 md:px-14 lg:px-36 font-[400] hidden md:flex">
         <p>العربية</p>
         <p className="hidden md:block">Buy, Bid, & Sell All in One Platform.</p>
-        <p>Download App</p>
+        <p className="flex items-center gap-4">
+          Download App
+          <FaApple />
+          <FaAndroid />
+        </p>
       </div>
 
       {/* Main header */}
@@ -132,7 +137,7 @@ export function Header() {
 
                 {/* Buy Now */}
                 <div className="w-full flex justify-between items-center text-lg font-medium">
-                  <p className="text-gray-600">Buy Now</p>
+                  <p className="text-gray-600 text-lg">Buy Now</p>
                   {
                     buyNowOpen ? (
                       <ChevronUp
@@ -156,7 +161,7 @@ export function Header() {
                       <li className="p-2">Vehicles</li>
                       <li className="p-2">Properties</li>
                       <li className="p-2">Watches</li>
-                      <li className="p-2 text-blue-500 underline flex items-center gap-2 ">
+                      <li className="p-2 text-blue-500 underline flex items-center gap-2 font-normal">
                         View All Categories
                         <ArrowRight className="h-5 w-5" />
                       </li>
@@ -199,16 +204,16 @@ export function Header() {
 
                 {/* Language */}
                 <div className="w-full flex justify-between items-center text-lg font-medium">
-                  <p className="text-gray-700">Language (اللغة)</p>
+                  <p className="text-gray-700 text-base">Language (اللغة)</p>
                   <div className="flex items-center gap-2">
-                    <span className="text-gray-700">English</span>
+                    <span className="text-gray-700 text-base">English</span>
                     <ChevronRight className="text-gray-500 h-5 w-5" />
                   </div>
                 </div>
 
                 {/* Sign In button */}
-                <div className="pt-6">
-                  <button className="w-full bg-red-600 text-white py-3 rounded-full font-semibold">
+                <div className="pt-4">
+                  <button className="w-full bg-red-600 text-white py-2 rounded-full font-semibold">
                     Sign In
                   </button>
                 </div>
