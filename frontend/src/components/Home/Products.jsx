@@ -13,7 +13,7 @@ const products = [
   {
     id: 1,
     image: "/products/product-1.jpeg",
-    title: "Roberto Coin Princess Flower Earrings",
+    title: "Roberto Coin Princess Flower",
     price: 2185,
     text: "price",
     currency: "BHD",
@@ -86,61 +86,66 @@ const products = [
 
 export function Products() {
   return (
-    <div className="md:max-w-7xl mx-auto mt-20 p-2">
+    <div className="md:max-w-7xl mx-auto mt-10 md:mt-20 p-4 sm:p-2">
       {/* Header */}
       <div className="flex items-center justify-between px-4">
-        <h1 className="text-[25px] font-bold text-gray-800 cursor-pointer select-none">Don't wait, Buy now</h1>
-        <h1 className="flex gap-1 items-center text-base text-gray-600 cursor-pointer select-none">
+        <h1 className="text-2xl sm:text-[26px] font-bold text-gray-700 cursor-pointer select-none text-wrap">Don't wait, Buy now</h1>
+        <h1 className="flex sm:gap-1 items-center text-sm sm:text-base text-gray-600 cursor-pointer select-none">
           View all
-          <ChevronRight className="text-gray-600 h-5 w-5" />
+          <ChevronRight className="text-gray-500 h-5 w-5" />
         </h1>
       </div>
 
       {/* Carousel */}
-      <Carousel className="mt-5">
-        <CarouselContent className="-ml-1">
+      <Carousel className="">
+        <CarouselContent className="">
           {products.map((product) => (
             <CarouselItem
               key={product.id}
-              className="pl-1 md:basis-1/2 lg:basis-1/4"
+              className="pl-1 md:basis-1/3 lg:basis-1/4"
             >
-              <Card className="flex flex-col select-none relative">
-                <CardContent className="p-4 flex flex-col">
-                  {product.isNew && (
-                    <div className="absolute left-2 top-2 shadow-lg bg-red-500 px-3 py-1 rounded-lg text-sm text-white font-semibold">
-                      NEW
+              <Card className="flex border-none flex-col select-none relative">
+                <CardContent className="flex flex-col">
+                  {/* Whole container with border */}
+                  <div className="relative border rounded-lg overflow-hidden p-2">
+                    {/* NEW badge */}
+                    {product.isNew && (
+                      <div className="absolute left-2 top-2 shadow-lg bg-red-500 px-2 py-1 rounded-lg text-xs text-white font-semibold">
+                        NEW
+                      </div>
+                    )}
+
+                    {/* Bookmark top-right */}
+                    <div className="absolute top-2 right-2 shadow-lg bg-gray-50 p-2 rounded-lg">
+                      <Bookmark className="w-5 h-5 text-gray-700" />
                     </div>
-                  )}
 
-                  {/* Bookmark top-right */}
-                  <div className="absolute top-2 right-2 shadow-lg bg-gray-50 p-2 rounded-lg">
-                    <Bookmark className="w-5 h-5 text-gray-700" />
-                  </div>
-
-                  {/* Image */}
-                  <div className="relative w-full h-[200px] flex items-center justify-center">
-                    <img
-                      src={product.image}
-                      alt={product.title}
-                      className="object-contain max-h-[200px] w-full"
-                    />
+                    {/* Image */}
+                    <div className="w-full h-[200px] flex items-center justify-center">
+                      <img
+                        src={product.image}
+                        alt={product.title}
+                        className="object-contain max-h-[180px] w-full"
+                      />
+                    </div>
                   </div>
 
                   {/* Product Info */}
-                  <div className="mt-6 space-y-1 text-left">
-                    <h2 className="text-base text-gray-600 font-medium line-clamp-2">
+                  <div className="mt-3 space-y-1 text-left">
+                    <h2 className="text-base text-gray-800 font-medium line-clamp-2">
                       {product.title}
                     </h2>
                     <div className="flex flex-col items-start gap-2">
-                      <span className="font-medium text-sm text-gray-600">
+                      <span className="font-medium text-sm text-gray-500">
                         {product.text}
                       </span>
-                      <span className="font-bold text-lg">
-                        {product.currency + ", " + product.price}
+                      <span className="font-bold text-base text-gray-700">
+                        {product.currency + " " + product.price}
                       </span>
                     </div>
                   </div>
                 </CardContent>
+
               </Card>
 
             </CarouselItem>

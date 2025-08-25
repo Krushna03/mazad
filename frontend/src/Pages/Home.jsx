@@ -1,6 +1,6 @@
 import React from 'react'
 import Hero from '../components/Home/Hero'
-import { Header } from '../components/Home/Header'
+import { Header } from '../components/Header'
 import { Products } from '../components/Home/Products'
 import CtaBanner from '../components/Home/CtaBanner'
 import { TrendingAuctions } from '../components/Home/TrendingAuctions'
